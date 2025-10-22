@@ -1,0 +1,3 @@
+1;Manuel Chavez;Gerente General;Dia completo;Sede principal
+2;David Perez;Asistente;Mañana;Operaciones
+3;Luis Enrique Huanca;Técnico;Tarde;Almacen
