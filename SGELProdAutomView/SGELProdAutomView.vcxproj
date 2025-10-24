@@ -121,21 +121,33 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="frmEditarMaquina.cpp" />
     <ClCompile Include="frmEditarOperador.cpp" />
     <ClCompile Include="frmLogin.cpp" />
+    <ClCompile Include="frmMantMaquina.cpp" />
     <ClCompile Include="frmMantOperador.cpp" />
+    <ClCompile Include="frmNuevaMaquina.cpp" />
     <ClCompile Include="frmNuevoOperador.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="frmEditarMaquina.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmEditarOperador.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmLogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmMantMaquina.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmMantOperador.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmNuevaMaquina.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmNuevoOperador.h">
@@ -153,14 +165,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmEditarMaquina.resx">
+      <DependentUpon>frmEditarMaquina.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarOperador.resx">
       <DependentUpon>frmEditarOperador.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMantMaquina.resx">
+      <DependentUpon>frmMantMaquina.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMantOperador.resx">
       <DependentUpon>frmMantOperador.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevaMaquina.resx">
+      <DependentUpon>frmNuevaMaquina.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoOperador.resx">
       <DependentUpon>frmNuevoOperador.h</DependentUpon>

@@ -1,0 +1,2 @@
+1;Brazo Robótico 1;Robótico;Operativa;Zona A-1
+2;Sensor de Visión A2;Sensorial;En Mantenimiento;Zona B-3

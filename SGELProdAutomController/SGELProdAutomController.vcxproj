@@ -111,6 +111,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MaquinaController.h" />
     <ClInclude Include="OperadorController.h" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +120,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MaquinaController.cpp" />
     <ClCompile Include="OperadorController.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -81,6 +81,9 @@ namespace SGELProdAutomView {
 			this->btnGrabar = (gcnew System::Windows::Forms::Button());
 			this->btnCancelar = (gcnew System::Windows::Forms::Button());
 			this->grpBoxPrincipal = (gcnew System::Windows::Forms::GroupBox());
+			this->txtUbicacion = (gcnew System::Windows::Forms::TextBox());
+			this->txtTurno = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtRol = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre = (gcnew System::Windows::Forms::TextBox());
 			this->txtIdOperador = (gcnew System::Windows::Forms::TextBox());
@@ -88,9 +91,6 @@ namespace SGELProdAutomView {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->txtTurno = (gcnew System::Windows::Forms::TextBox());
-			this->txtUbicacion = (gcnew System::Windows::Forms::TextBox());
 			this->grpBoxPrincipal->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -145,7 +145,37 @@ namespace SGELProdAutomView {
 			this->grpBoxPrincipal->Size = System::Drawing::Size(619, 314);
 			this->grpBoxPrincipal->TabIndex = 14;
 			this->grpBoxPrincipal->TabStop = false;
-			this->grpBoxPrincipal->Text = L"Información deneral del Operador";
+			this->grpBoxPrincipal->Text = L"Información general del Operador";
+			// 
+			// txtUbicacion
+			// 
+			this->txtUbicacion->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->txtUbicacion->Location = System::Drawing::Point(190, 253);
+			this->txtUbicacion->Margin = System::Windows::Forms::Padding(5);
+			this->txtUbicacion->Name = L"txtUbicacion";
+			this->txtUbicacion->Size = System::Drawing::Size(403, 28);
+			this->txtUbicacion->TabIndex = 5;
+			// 
+			// txtTurno
+			// 
+			this->txtTurno->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->txtTurno->Location = System::Drawing::Point(190, 201);
+			this->txtTurno->Margin = System::Windows::Forms::Padding(5);
+			this->txtTurno->Name = L"txtTurno";
+			this->txtTurno->Size = System::Drawing::Size(403, 28);
+			this->txtTurno->TabIndex = 4;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(13, 253);
+			this->label2->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(99, 24);
+			this->label2->TabIndex = 8;
+			this->label2->Text = L"Ubicación:";
 			// 
 			// txtRol
 			// 
@@ -171,6 +201,7 @@ namespace SGELProdAutomView {
 			// 
 			this->txtIdOperador->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->txtIdOperador->Enabled = false;
 			this->txtIdOperador->Location = System::Drawing::Point(190, 57);
 			this->txtIdOperador->Margin = System::Windows::Forms::Padding(5);
 			this->txtIdOperador->Name = L"txtIdOperador";
@@ -216,36 +247,6 @@ namespace SGELProdAutomView {
 			this->label1->Size = System::Drawing::Size(116, 24);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Identificador:";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(13, 253);
-			this->label2->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(99, 24);
-			this->label2->TabIndex = 8;
-			this->label2->Text = L"Ubicación:";
-			// 
-			// txtTurno
-			// 
-			this->txtTurno->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->txtTurno->Location = System::Drawing::Point(190, 201);
-			this->txtTurno->Margin = System::Windows::Forms::Padding(5);
-			this->txtTurno->Name = L"txtTurno";
-			this->txtTurno->Size = System::Drawing::Size(403, 28);
-			this->txtTurno->TabIndex = 4;
-			// 
-			// txtUbicacion
-			// 
-			this->txtUbicacion->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->txtUbicacion->Location = System::Drawing::Point(190, 253);
-			this->txtUbicacion->Margin = System::Windows::Forms::Padding(5);
-			this->txtUbicacion->Name = L"txtUbicacion";
-			this->txtUbicacion->Size = System::Drawing::Size(403, 28);
-			this->txtUbicacion->TabIndex = 5;
 			// 
 			// frmEditarOperador
 			// 

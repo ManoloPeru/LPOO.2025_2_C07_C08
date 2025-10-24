@@ -118,6 +118,7 @@
     <ClInclude Include="CilindroHidraulico.h" />
     <ClInclude Include="ConsolaSupervision.h" />
     <ClInclude Include="Elemento.h" />
+    <ClInclude Include="Maquina.h" />
     <ClInclude Include="Operador.h" />
     <ClInclude Include="SecuenciaEnsamblaje.h" />
     <ClInclude Include="Sensor.h" />
@@ -132,6 +133,7 @@
     <ClCompile Include="CilindroHidraulico.cpp" />
     <ClCompile Include="ConsolaSupervision.cpp" />
     <ClCompile Include="Elemento.cpp" />
+    <ClCompile Include="Maquina.cpp" />
     <ClCompile Include="Operador.cpp" />
     <ClCompile Include="SecuenciaEnsamblaje.cpp" />
     <ClCompile Include="Sensor.cpp" />
