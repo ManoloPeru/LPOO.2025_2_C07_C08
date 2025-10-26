@@ -1,10 +1,14 @@
 #pragma once
 #include "MaquinaController.h"
+using namespace System::Runtime::Serialization::Formatters::Binary;
 using namespace System::IO;
 using namespace SGELProdAutomController;
 
 MaquinaController::MaquinaController() {
     this->listaMaquinas = gcnew List<Maquina^>();
+	
+    /* 
+    TXT: Leer el archivo de texto y cargar los datos en la lista
     if (!File::Exists("maquina.txt")) {
         File::WriteAllText("maquina.txt", "");
     }
@@ -21,6 +25,35 @@ MaquinaController::MaquinaController() {
         Maquina^ maquina = gcnew Maquina(id, nombre, tipo, turno, ubicacion);
         this->listaMaquinas->Add(maquina);
     }
+    */
+
+    // BIN: Leer el archivo binario y cargar los datos en la lista
+    this->archivo = "maquina.bin";
+    try {
+        if (File::Exists(this->archivo)) {
+            // El archivo existe, proceder con la lectura
+            Stream^ stream = File::Open(this->archivo, FileMode::Open);
+            BinaryFormatter^ formateador = gcnew BinaryFormatter();
+            this->listaMaquinas = dynamic_cast<List<Maquina^>^>(formateador->Deserialize(stream));
+            stream->Close();
+        }
+        else {
+            // El archivo no existe, crear lista vacía
+            Console::WriteLine("Archivo no encontrado. Creando nueva lista vacía.");
+            this->listaMaquinas = gcnew List<Maquina^>();
+
+            // Opcional: guardar lista vacía inmediatamente
+            Stream^ stream = File::Create(this->archivo);
+            BinaryFormatter^ formateador = gcnew BinaryFormatter();
+            formateador->Serialize(stream, this->listaMaquinas);
+            stream->Close();
+        }
+    }
+    catch (Exception^ ex) {
+        Console::WriteLine("Error: " + ex->Message);
+        // En caso de cualquier error, crear lista vacía
+        this->listaMaquinas = gcnew List<Maquina^>();
+    }
 }
 
 List<Maquina^>^ MaquinaController::ObtenerTodosMaquinas() {
@@ -30,7 +63,8 @@ List<Maquina^>^ MaquinaController::ObtenerTodosMaquinas() {
 void MaquinaController::AgregarMaquina(Maquina^ maquina) {
     if (!ExisteMaquina(maquina->getIdMaquina())) {
         this->listaMaquinas->Add(maquina);
-        escribirArchivo();
+        //escribirArchivo();
+        escribirArchivoBIN();
     }
 }
 
@@ -78,7 +112,8 @@ bool MaquinaController::ModificarMaquina(int id, String^ nombre, String^ rol, St
         maquina->setTipo(rol);
         maquina->setEstado(turno);
         maquina->setUbicacion(ubicacion);
-        escribirArchivo();
+        //escribirArchivo();
+        escribirArchivoBIN();
         return true;
     }
     return false;
@@ -89,7 +124,8 @@ bool MaquinaController::EliminarMaquina(int id) {
     Maquina^ maquina = ConsultarMaquinaPorId(id);
     if (maquina != nullptr) {
         this->listaMaquinas->Remove(maquina);
-        escribirArchivo();
+        //escribirArchivo();
+        escribirArchivoBIN();
         return true;
     }
     return false;
@@ -97,4 +133,13 @@ bool MaquinaController::EliminarMaquina(int id) {
 
 void MaquinaController::CloseMaquina() {
     this->listaMaquinas = nullptr;
+}
+
+// Método para escribir en el archivo BIN
+void MaquinaController::escribirArchivoBIN() {
+    //Creamos el archivo
+    Stream^ stream = File::Open(this->archivo, FileMode::Create);
+    BinaryFormatter^ formateador = gcnew BinaryFormatter();
+    formateador->Serialize(stream, this->listaMaquinas);
+    stream->Close();
 }

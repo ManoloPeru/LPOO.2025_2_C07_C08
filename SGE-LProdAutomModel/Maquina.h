@@ -3,6 +3,7 @@
 namespace SGELProdAutomModel {
     using namespace System;
 
+	[Serializable] //IMPORTANTE, AGREGAR ESTA LINEA PARA SERIALIZAR
     public ref class Maquina {
     private:
         int idMaquina;

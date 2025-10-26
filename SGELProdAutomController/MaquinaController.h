@@ -8,6 +8,8 @@ namespace SGELProdAutomController {
     public ref class MaquinaController {
     private:
         List<Maquina^>^ listaMaquinas;
+        //Manejo de archivos binarios:
+        String^ archivo;
 
     public:
         MaquinaController();
@@ -22,5 +24,7 @@ namespace SGELProdAutomController {
         bool EliminarMaquina(int id);
         // Ultima acción para liberar memoria, conexiones
         void CloseMaquina();
+        //Para los archivos BIN
+        void escribirArchivoBIN();
     };
 }
