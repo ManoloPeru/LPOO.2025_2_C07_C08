@@ -120,6 +120,7 @@
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Maquina.h" />
     <ClInclude Include="Operador.h" />
+    <ClInclude Include="Paquete.h" />
     <ClInclude Include="SecuenciaEnsamblaje.h" />
     <ClInclude Include="Sensor.h" />
     <ClInclude Include="SensorFuerza.h" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Elemento.cpp" />
     <ClCompile Include="Maquina.cpp" />
     <ClCompile Include="Operador.cpp" />
+    <ClCompile Include="Paquete.cpp" />
     <ClCompile Include="SecuenciaEnsamblaje.cpp" />
     <ClCompile Include="Sensor.cpp" />
     <ClCompile Include="SensorFuerza.cpp" />

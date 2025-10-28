@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClInclude Include="MaquinaController.h" />
     <ClInclude Include="OperadorController.h" />
+    <ClInclude Include="PaqueteController.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SGE-LProdAutomModel\SGE-LProdAutomModel.vcxproj">
@@ -122,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="MaquinaController.cpp" />
     <ClCompile Include="OperadorController.cpp" />
+    <ClCompile Include="PaqueteController.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

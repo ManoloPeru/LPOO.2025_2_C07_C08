@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "frmNuevaMaquina.h"
 #include "frmEditarMaquina.h"
+#include "frmMantMantenimiento.h"
 
 namespace SGELProdAutomView {
 
@@ -58,6 +59,7 @@ namespace SGELProdAutomView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colEstado;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colUbicacion;
 	private: MaquinaController^ maquinaController;
+	private: System::Windows::Forms::Button^ btnMantenimiento;
 
 	private:
 		/// <summary>
@@ -90,6 +92,7 @@ namespace SGELProdAutomView {
 			this->colTipo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colEstado = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colUbicacion = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnMantenimiento = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvLista))->BeginInit();
 			this->SuspendLayout();
@@ -197,7 +200,7 @@ namespace SGELProdAutomView {
 			this->btnEliminar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnEliminar->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnEliminar->Location = System::Drawing::Point(626, 546);
+			this->btnEliminar->Location = System::Drawing::Point(597, 546);
 			this->btnEliminar->Margin = System::Windows::Forms::Padding(4);
 			this->btnEliminar->Name = L"btnEliminar";
 			this->btnEliminar->Size = System::Drawing::Size(98, 34);
@@ -212,7 +215,7 @@ namespace SGELProdAutomView {
 			this->btnEditar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnEditar->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnEditar->Location = System::Drawing::Point(431, 546);
+			this->btnEditar->Location = System::Drawing::Point(379, 546);
 			this->btnEditar->Margin = System::Windows::Forms::Padding(4);
 			this->btnEditar->Name = L"btnEditar";
 			this->btnEditar->Size = System::Drawing::Size(98, 34);
@@ -227,7 +230,7 @@ namespace SGELProdAutomView {
 			this->btnNuevo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnNuevo->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnNuevo->Location = System::Drawing::Point(219, 546);
+			this->btnNuevo->Location = System::Drawing::Point(165, 546);
 			this->btnNuevo->Margin = System::Windows::Forms::Padding(4);
 			this->btnNuevo->Name = L"btnNuevo";
 			this->btnNuevo->Size = System::Drawing::Size(98, 34);
@@ -305,11 +308,27 @@ namespace SGELProdAutomView {
 			this->colUbicacion->Name = L"colUbicacion";
 			this->colUbicacion->Width = 150;
 			// 
+			// btnMantenimiento
+			// 
+			this->btnMantenimiento->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->btnMantenimiento->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->btnMantenimiento->ForeColor = System::Drawing::SystemColors::Control;
+			this->btnMantenimiento->Location = System::Drawing::Point(799, 546);
+			this->btnMantenimiento->Margin = System::Windows::Forms::Padding(4);
+			this->btnMantenimiento->Name = L"btnMantenimiento";
+			this->btnMantenimiento->Size = System::Drawing::Size(146, 34);
+			this->btnMantenimiento->TabIndex = 12;
+			this->btnMantenimiento->Text = L"Mantenimientos";
+			this->btnMantenimiento->UseVisualStyleBackColor = false;
+			this->btnMantenimiento->Click += gcnew System::EventHandler(this, &frmMantMaquina::btnMantenimiento_Click);
+			// 
 			// frmMantMaquina
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1111, 625);
+			this->Controls->Add(this->btnMantenimiento);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->btnEliminar);
 			this->Controls->Add(this->btnEditar);
@@ -435,5 +454,20 @@ private: System::Void frmMantMaquina_FormClosing(System::Object^ sender, System:
 		this->dgvLista->AutoGenerateColumns = false; // Desactivar la generaci�n autom�tica de columnas
 		this->dgvLista->AllowUserToAddRows = false;	 // Evitar que el usuario pueda agregar filas manualmente
 	}
+private: System::Void btnMantenimiento_Click(System::Object^ sender, System::EventArgs^ e) {
+	// Verificar si se ha seleccionado una fila en el DataGridView
+	if (this->dgvLista->SelectedRows->Count > 0)
+	{
+		int selectedRowIndex = this->dgvLista->SelectedRows[0]->Index;
+		int idMaquina = Convert::ToInt32(this->dgvLista->Rows[selectedRowIndex]->Cells[0]->Value);
+		Maquina^ maquinaSeleccionada = this->maquinaController->ConsultarMaquinaPorId(idMaquina);
+		frmMantMantenimiento^ ventanaMantMantenimiento = gcnew frmMantMantenimiento(maquinaSeleccionada);
+		ventanaMantMantenimiento->ShowDialog();
+	}
+	else
+	{
+		MessageBox::Show("Por favor, seleccione un operador para eliminar.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	}
+}
 };
 }
