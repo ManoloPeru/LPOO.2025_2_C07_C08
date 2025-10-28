@@ -124,11 +124,13 @@
     <ClCompile Include="frmEditarMaquina.cpp" />
     <ClCompile Include="frmEditarOperador.cpp" />
     <ClCompile Include="frmLogin.cpp" />
+    <ClCompile Include="frmMantMantenimiento.cpp" />
     <ClCompile Include="frmMantMaquina.cpp" />
     <ClCompile Include="frmMantOperador.cpp" />
     <ClCompile Include="frmNuevaMaquina.cpp" />
     <ClCompile Include="frmNuevoOperador.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
+    <ClCompile Include="frmVerDatosMantenimiento.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +141,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmLogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmMantMantenimiento.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmMantMaquina.h">
@@ -154,6 +159,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmPrincipal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmVerDatosMantenimiento.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -174,6 +182,9 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMantMantenimiento.resx">
+      <DependentUpon>frmMantMantenimiento.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMantMaquina.resx">
       <DependentUpon>frmMantMaquina.h</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerDatosMantenimiento.resx">
+      <DependentUpon>frmVerDatosMantenimiento.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
