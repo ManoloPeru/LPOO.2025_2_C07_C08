@@ -3,12 +3,22 @@
 using namespace System::IO;
 using namespace SGELProdAutomController;
 
-OperadorController::OperadorController() {
+OperadorController::OperadorController(String^ pathArchivo) {
+    //Paso 1: Construye la ruta completa del archivo de operadores
+    this->pathArchivo = Path::Combine(pathArchivo, "operador.txt");
+	//Paso 2: Asegura que el directorio exista y carga los operadores desde el archivo
+	String^ dir = Path::GetDirectoryName(this->pathArchivo); 
+	//Paso3: Si el directorio no existe, lo crea (no falla si ya existe)
+    Directory::CreateDirectory(dir); 
     this->listaOperadores = gcnew List<Operador^>();
-    if (!File::Exists("operador.txt")) {
-        File::WriteAllText("operador.txt", "");
+	//Paso 4: Si el archivo no existe, lo crea vacío. Luego lee las líneas del archivo y carga los operadores en la lista
+    if (!File::Exists(this->pathArchivo)) {
+		// Si el archivo no existe, lo crea vacío
+        File::WriteAllText(this->pathArchivo, "");
     }
-    array<String^>^ lineas = File::ReadAllLines("operador.txt");
+	// Lee las líneas del archivo y carga los operadores en la lista
+    array<String^>^ lineas = File::ReadAllLines(this->pathArchivo);
+	// Define el separador para dividir los campos en cada línea
     String^ separadores = ";";
     for each(String ^ linea in lineas) {
         array<String^>^ campos = linea->Split(separadores->ToCharArray());
@@ -51,10 +61,14 @@ void OperadorController::escribirArchivo() {
     array<String^>^ lineasArchivo = gcnew array<String^>(this->listaOperadores->Count);
     for (int i = 0; i < this->listaOperadores->Count; i++) {
         Operador^ operador = this->listaOperadores[i];
-        lineasArchivo[i] = operador->getIdOperador() + ";" + operador->getNombre() + ";" +
-            operador->getRol() + ";" + operador->getTurno() + ";" + operador->getUbicacion();
+        lineasArchivo[i] = operador->getIdOperador() + ";" + 
+            operador->getNombre() + ";" +
+            operador->getRol() + ";" + 
+            operador->getTurno() + ";" + 
+            operador->getUbicacion();
     }
-    File::WriteAllLines("operador.txt", lineasArchivo);
+	// Escribe todas las líneas al archivo, sobrescribiendo el contenido anterior
+    File::WriteAllLines(this->pathArchivo, lineasArchivo);
 }
 
 List<Operador^>^ OperadorController::ConsultarOperadorPorIdNombre(int id, String^ nombre)

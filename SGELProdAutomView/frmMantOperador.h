@@ -6,6 +6,7 @@ namespace SGELProdAutomView
 {
 
 	using namespace System;
+	using namespace System::IO; // Agregado para manejo de archivos
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
 	using namespace System::Collections::Generic;
@@ -28,7 +29,8 @@ public
 			//
 			// TODO: agregar codigo de constructor aqui
 			//
-			this->operadorController = gcnew OperadorController();
+			String^ pathArchivo = Path::Combine(Directory::GetParent(Directory::GetParent(Application::StartupPath)->FullName)->FullName, "BD\\txt\\");
+			this->operadorController = gcnew OperadorController(pathArchivo);
 		}
 
 	protected:
@@ -380,6 +382,7 @@ public
 			}
 			this->dgvLista->AutoGenerateColumns = false; // Desactivar la generaci�n autom�tica de columnas
 			this->dgvLista->AllowUserToAddRows = false;	 // Evitar que el usuario pueda agregar filas manualmente
+			this->dgvLista->AutoResizeColumns(DataGridViewAutoSizeColumnsMode::AllCells); // Ajustar el ancho de las columnas al contenido
 		}
 
 	private:System::Void btnNuevo_Click(System::Object ^ sender, System::EventArgs ^ e)
@@ -481,11 +484,9 @@ public
 		   
 private: System::Void frmMantOperador_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	// Este evento se dispara cuando el formulario se está cerrando
-	   // Puedes realizar acciones de limpieza aquí
-
-	   // Ejemplo: Guardar configuración, liberar recursos, etc.
-
-	   //MessageBox::Show("El formulario se está cerrando", "Cerrando");
+	// Puedes realizar acciones de limpieza aquí
+	// Ejemplo: Guardar configuración, liberar recursos, etc.
+	// MessageBox::Show("El formulario se está cerrando", "Cerrando");
 	this->operadorController->CloseOperador();
 	// Opcional: Puedes cancelar el cierre si es necesario
 	// if (condicion) {

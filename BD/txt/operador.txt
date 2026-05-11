@@ -1,0 +1,5 @@
+1;Manuel Chavez;Gerente General;Diurno;Sede principal
+2;David Perez;Gerente de Operaciones;Diurno;Operaciones
+3;Luis Enrique Huanca;Técnico;Tarde;Almacen
+4;Richard Saldaña;Analista Senior;Diurno;Sede Principal
+5;Jean Pierre;Programador Senior;Nocturno;Miraflores

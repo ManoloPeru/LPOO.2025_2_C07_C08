@@ -7,10 +7,11 @@ namespace SGELProdAutomController {
 
     public ref class OperadorController {
     private:
-        List<Operador^>^ listaOperadores;
+		String^ pathArchivo; // Ruta del archivo para almacenar los operadores
+		List<Operador^>^ listaOperadores; // Lista para almacenar los operadores en memoria
 
     public:
-        OperadorController();
+        OperadorController(String^ pathArchivo);
         // Operaciones CRUD
         List<Operador^>^ ObtenerTodosOperadores();
         void AgregarOperador(Operador^ operador);
