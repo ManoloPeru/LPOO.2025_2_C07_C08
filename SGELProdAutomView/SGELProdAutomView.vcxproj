@@ -121,27 +121,47 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="frmEditarMaquina.cpp" />
     <ClCompile Include="frmEditarOperador.cpp" />
     <ClCompile Include="frmLogin.cpp" />
+    <ClCompile Include="frmMantMantenimiento.cpp" />
+    <ClCompile Include="frmMantMaquina.cpp" />
     <ClCompile Include="frmMantOperador.cpp" />
+    <ClCompile Include="frmNuevaMaquina.cpp" />
     <ClCompile Include="frmNuevoOperador.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
+    <ClCompile Include="frmVerDatosMantenimiento.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="frmEditarMaquina.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmEditarOperador.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmLogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmMantMantenimiento.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmMantMaquina.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmMantOperador.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmNuevaMaquina.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmNuevoOperador.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmPrincipal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmVerDatosMantenimiento.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -153,20 +173,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmEditarMaquina.resx">
+      <DependentUpon>frmEditarMaquina.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarOperador.resx">
       <DependentUpon>frmEditarOperador.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMantMantenimiento.resx">
+      <DependentUpon>frmMantMantenimiento.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMantMaquina.resx">
+      <DependentUpon>frmMantMaquina.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMantOperador.resx">
       <DependentUpon>frmMantOperador.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevaMaquina.resx">
+      <DependentUpon>frmNuevaMaquina.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoOperador.resx">
       <DependentUpon>frmNuevoOperador.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerDatosMantenimiento.resx">
+      <DependentUpon>frmVerDatosMantenimiento.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

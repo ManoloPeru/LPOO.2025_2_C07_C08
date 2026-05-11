@@ -1,5 +1,6 @@
 #pragma once
 #include "frmMantOperador.h"
+#include "frmMantMaquina.h"
 
 namespace SGELProdAutomView {
 
@@ -39,6 +40,7 @@ namespace SGELProdAutomView {
 	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ mantenimientoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ operadorToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ máquinaToolStripMenuItem;
 
 
 	private:
@@ -57,6 +59,7 @@ namespace SGELProdAutomView {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->mantenimientoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->operadorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->máquinaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -75,7 +78,10 @@ namespace SGELProdAutomView {
 			// 
 			// mantenimientoToolStripMenuItem
 			// 
-			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->operadorToolStripMenuItem });
+			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->operadorToolStripMenuItem,
+					this->máquinaToolStripMenuItem
+			});
 			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
 			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(153, 29);
 			this->mantenimientoToolStripMenuItem->Text = L"Mantenimiento";
@@ -87,6 +93,13 @@ namespace SGELProdAutomView {
 			this->operadorToolStripMenuItem->Text = L"Operador";
 			this->operadorToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::operadorToolStripMenuItem_Click);
 			// 
+			// máquinaToolStripMenuItem
+			// 
+			this->máquinaToolStripMenuItem->Name = L"máquinaToolStripMenuItem";
+			this->máquinaToolStripMenuItem->Size = System::Drawing::Size(180, 30);
+			this->máquinaToolStripMenuItem->Text = L"Máquina";
+			this->máquinaToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::máquinaToolStripMenuItem_Click);
+			// 
 			// frmPrincipal
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -95,7 +108,7 @@ namespace SGELProdAutomView {
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"frmPrincipal";
 			this->Text = L"Sistema de Gestión de Operaciones";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
@@ -113,5 +126,10 @@ namespace SGELProdAutomView {
 		operadorForm->MdiParent = this; // Establecer el formulario principal como padre
 		operadorForm->Show(); // Mostrar el formulario hijo
 	}
+private: System::Void máquinaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmMantMaquina^ maquinaForm = gcnew frmMantMaquina();
+	maquinaForm->MdiParent = this; 
+	maquinaForm->Show();
+}
 };
 }
